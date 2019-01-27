@@ -10,11 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var count = [20, 20, 20, 20]
-    @IBOutlet var p1: UILabel!
-    @IBOutlet var p2: UILabel!
-    @IBOutlet var p3: UILabel!
-    @IBOutlet var p4: UILabel!
+
+    @IBOutlet weak var p1: UILabel!
+    @IBOutlet weak var p2: UILabel!
+    @IBOutlet weak var p3: UILabel!
+    @IBOutlet weak var p4: UILabel!
     
     
     
@@ -23,32 +23,34 @@ class ViewController: UIViewController {
         
         
     }
-
-    @IBAction func p1PlusOne() {
-        p1.text = String("21")
-//        if count[0] == 20 {
-//            incre()
-//        }
+    
+    @IBAction func playerOne(_ sender: UIButton) {
+        update(sender, label: p1)
     }
     
-//    func incre() {
-//        p1.text = String("21")
-//    }
-    
-    
-    @IBAction func p1PlusFive() {
-        
+    @IBAction func playerTwo(_ sender: UIButton) {
+        update(sender, label: p2)
     }
     
-    @IBAction func p1MinusOne() {
-        
+    @IBAction func playerThree(_ sender: UIButton) {
+        update(sender, label: p3)
     }
     
-    @IBAction func p1MinusFive() {
-        
+    @IBAction func playerFour(_ sender: UIButton) {
+        update(sender, label: p4)
     }
     
-    
+    func update(_ sender: UIButton, label: UILabel) {
+        if sender.currentTitle == "+1" {
+            label.text = String(Int(label.text!)! + 1)
+        } else if sender.currentTitle == "-1" {
+            label.text = String(Int(label.text!)! - 1)
+        } else if sender.currentTitle == "+5" {
+            label.text = String(Int(label.text!)! + 5)
+        } else if sender.currentTitle == "-5" {
+            label.text = String(Int(label.text!)! - 5)
+        }
+    }
 
     
 }
