@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var p2: UILabel!
     @IBOutlet weak var p3: UILabel!
     @IBOutlet weak var p4: UILabel!
+    @IBOutlet weak var infoForPlayer: UILabel!
     
     
     
@@ -25,22 +26,22 @@ class ViewController: UIViewController {
     }
     
     @IBAction func playerOne(_ sender: UIButton) {
-        update(sender, label: p1)
+        update(sender, label: p1, name: "1")
     }
     
     @IBAction func playerTwo(_ sender: UIButton) {
-        update(sender, label: p2)
+        update(sender, label: p2, name: "2")
     }
     
     @IBAction func playerThree(_ sender: UIButton) {
-        update(sender, label: p3)
+        update(sender, label: p3, name: "3")
     }
     
     @IBAction func playerFour(_ sender: UIButton) {
-        update(sender, label: p4)
+        update(sender, label: p4, name: "4")
     }
     
-    func update(_ sender: UIButton, label: UILabel) {
+    func update(_ sender: UIButton, label: UILabel, name: String) {
         if sender.currentTitle == "+1" {
             label.text = String(Int(label.text!)! + 1)
         } else if sender.currentTitle == "-1" {
@@ -50,6 +51,11 @@ class ViewController: UIViewController {
         } else if sender.currentTitle == "-5" {
             label.text = String(Int(label.text!)! - 5)
         }
+
+        if Int(label.text!)! <= 0 {
+            infoForPlayer.text = "Player \(name) LOSES!"
+        }
+        
     }
 
     

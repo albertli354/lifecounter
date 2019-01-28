@@ -48,8 +48,8 @@
                                     <action selector="playerTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="enW-Ws-khW"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Player 3:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wC-Sx-9nY">
-                                <rect key="frame" x="56" y="473" width="67" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Player 4:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wC-Sx-9nY">
+                                <rect key="frame" x="56" y="473" width="67" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -228,11 +228,19 @@
                                     <action selector="playerFour:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fnb-3I-JQR"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDd-H6-jme">
+                                <rect key="frame" x="56" y="536" width="266" height="87"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="infoForPlayer" destination="hDd-H6-jme" id="WFd-db-d0c"/>
                         <outlet property="p1" destination="xoE-4y-lNR" id="w9x-yF-KJO"/>
                         <outlet property="p2" destination="9yN-Rd-Ekf" id="3hQ-9Q-7yM"/>
                         <outlet property="p3" destination="lT6-AO-SOe" id="F7O-4E-0Pc"/>
