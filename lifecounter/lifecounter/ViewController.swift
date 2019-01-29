@@ -18,11 +18,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var infoForPlayer: UILabel!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
     
     @IBAction func playerOne(_ sender: UIButton) {
@@ -42,22 +39,14 @@ class ViewController: UIViewController {
     }
     
     func update(_ sender: UIButton, label: UILabel, name: String) {
-        if sender.currentTitle == "+1" {
-            label.text = String(Int(label.text!)! + 1)
-        } else if sender.currentTitle == "-1" {
-            label.text = String(Int(label.text!)! - 1)
-        } else if sender.currentTitle == "+5" {
-            label.text = String(Int(label.text!)! + 5)
-        } else if sender.currentTitle == "-5" {
-            label.text = String(Int(label.text!)! - 5)
-        }
-
+        label.text = String(Int(sender.currentTitle!)! + Int(label.text!)!)
         if Int(label.text!)! <= 0 {
             infoForPlayer.text = "Player \(name) LOSES!"
-        }
-        
+        }   
     }
 
+    
+    
     
 }
 
