@@ -16,10 +16,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var p3: UILabel!
     @IBOutlet weak var p4: UILabel!
     @IBOutlet weak var infoForPlayer: UILabel!
-    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
     
     @IBAction func playerOne(_ sender: UIButton) {
