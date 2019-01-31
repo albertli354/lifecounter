@@ -19,6 +19,11 @@ class HistoryViewController: UIViewController {
         historyText.text = historyInfo
     }
     
+    
+    @IBAction func closePage(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 
     /*
     // MARK: - Navigation

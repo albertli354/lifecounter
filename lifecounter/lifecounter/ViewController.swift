@@ -23,6 +23,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var addPlayer: UIButton!
     @IBOutlet weak var removePlayer: UIButton!
     
+    
+    
     @IBOutlet var scoreInputs: [UITextField]!
     @IBOutlet var playerViews: [UIView]!
 
@@ -35,29 +37,60 @@ class ViewController: UIViewController {
         for element in playerViews[4...7] {
             element.isHidden = true
         }
+
+//        if gameStart == true {
+//            addPlayer.isEnabled = false
+//        }
     }
     
     @IBAction func playerOne(_ sender: UIButton) {
-        updateLife(sender, label: p1, name: "1")
+        updateLife(sender, label: p1, name: "1", score: scoreInputs[0].text!)
     }
     
     @IBAction func playerTwo(_ sender: UIButton) {
-        updateLife(sender, label: p2, name: "2")
+        updateLife(sender, label: p2, name: "2", score: scoreInputs[1].text!)
     }
-    
+
     @IBAction func playerThree(_ sender: UIButton) {
-        updateLife(sender, label: p3, name: "3")
+        updateLife(sender, label: p3, name: "3", score: scoreInputs[2].text!)
     }
-    
+
     @IBAction func playerFour(_ sender: UIButton) {
-        updateLife(sender, label: p4, name: "4")
+        updateLife(sender, label: p4, name: "4", score: scoreInputs[3].text!)
     }
     
-    func updateLife(_ sender: UIButton, label: UILabel, name: String) {
+    @IBAction func playerFive(_ sender: UIButton) {
+        updateLife(sender, label: p5, name: "5", score: scoreInputs[4].text!)
+    }
+    
+    @IBAction func playerSix(_ sender: UIButton) {
+        updateLife(sender, label: p6, name: "6", score: scoreInputs[5].text!)
+    }
+    
+    @IBAction func playerSeven(_ sender: UIButton) {
+        updateLife(sender, label: p7, name: "7", score: scoreInputs[6].text!)
+    }
+    
+    @IBAction func playerEight(_ sender: UIButton) {
+        updateLife(sender, label: p8, name: "8", score: scoreInputs[7].text!)
+    }
+    
+    
+    
+    func updateLife(_ sender: UIButton, label: UILabel, name: String, score: String) {
         gameStart = true
-        label.text = String(Int(sender.currentTitle!)! + Int(label.text!)!)
+        addPlayer.isEnabled = false
+        removePlayer.isEnabled = false
         
-        
+        // update life score
+        if sender.currentTitle == "+" {
+            label.text = String(Int(score)! + Int(label.text!)!)
+        } else if sender.currentTitle == "-" {
+            label.text = String(Int(label.text!)! - Int(score)!)
+        } else {
+            label.text = String(Int(sender.currentTitle!)! + Int(label.text!)!)
+        }
+
         if Int(label.text!)! <= 0 {
             gameOver = true
             infoForPlayer.text = "Player \(name) LOSES!"
