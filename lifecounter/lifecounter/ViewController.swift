@@ -31,6 +31,8 @@ class ViewController: UIViewController {
     var gameStart = false
     var gameOver = false
     var count = 4
+    var history = ""
+    var wholeHistory = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +40,6 @@ class ViewController: UIViewController {
             element.isHidden = true
         }
 
-//        if gameStart == true {
-//            addPlayer.isEnabled = false
-//        }
     }
     
     @IBAction func playerOne(_ sender: UIButton) {
@@ -83,18 +82,35 @@ class ViewController: UIViewController {
         removePlayer.isEnabled = false
         
         // update life score
+        var numToWord: String
+        var num = ""
         if sender.currentTitle == "+" {
             label.text = String(Int(score)! + Int(label.text!)!)
+            
+            numToWord = toWords(number: Int(score)!)!
         } else if sender.currentTitle == "-" {
+            numToWord = toWords(number: Int(score)!)!
             label.text = String(Int(label.text!)! - Int(score)!)
         } else {
+            num = String(Array(sender.currentTitle!)[1])
+            numToWord = toWords(number: num)!
             label.text = String(Int(sender.currentTitle!)! + Int(label.text!)!)
         }
 
         if Int(label.text!)! <= 0 {
             gameOver = true
-            infoForPlayer.text = "Player \(name) LOSES!"
-        }   
+            infoForPlayer.text = "The game is over! Please click reset"
+        }
+        
+        // generate history info test[test.startIndex]
+        history = "Player \(name) "
+        if sender.currentTitle![sender.currentTitle!.startIndex] == "+" {
+            history += "gain "
+        } else if sender.currentTitle![sender.currentTitle!.startIndex] == "-" {
+            history += "lost "
+        }
+        history += "\(numToWord) life."
+        wholeHistory = history + "\n" + wholeHistory
     }
 
     
@@ -104,7 +120,7 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! HistoryViewController
-        vc.historyInfo = "It works!!"
+        vc.historyInfo = wholeHistory
     }
     
     @IBAction func addPlayer(_ sender: Any) {
@@ -122,7 +138,44 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func reset(_ sender: Any) {
+        wholeHistory = ""
+        var allScore: [UILabel]!
+        allScore = [p1, p2, p3, p4, p5, p6, p7, p8]
+        for life in allScore {
+            life.text = "20"
+        }
+        addPlayer.isEnabled = true
+        removePlayer.isEnabled = true
+        for element in playerViews[4...7] {
+            element.isHidden = true
+        }
+        count = 4
+    }
     
+    
+    
+    
+    
+    
+    
+    // cited from stockoverflow https://stackoverflow.com/questions/9250433/how-do-i-convert-an-integer-to-the-corresponding-words-in-objective-c
+    func toWords<N>(number: N) -> String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .spellOut
+        
+        switch number {
+        case is Int, is UInt, is Float, is Double:
+            return formatter.string(from: number as! NSNumber)
+        case is String:
+            if let number = Double(number as! String) {
+                return formatter.string(from: NSNumber(floatLiteral: number))
+            }
+        default:
+            break
+        }
+        return nil
+    }
     
 }
 
