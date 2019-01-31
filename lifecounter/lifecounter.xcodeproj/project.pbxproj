@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		502966C822026C5E00D372C2 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502966C722026C5E00D372C2 /* HistoryViewController.swift */; };
 		50CD61CC21FADA7D0087241D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CD61CB21FADA7D0087241D /* AppDelegate.swift */; };
 		50CD61CE21FADA7D0087241D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CD61CD21FADA7D0087241D /* ViewController.swift */; };
 		50CD61D121FADA7D0087241D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50CD61CF21FADA7D0087241D /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		502966C722026C5E00D372C2 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		50CD61C821FADA7D0087241D /* lifecounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lifecounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50CD61CB21FADA7D0087241D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50CD61CD21FADA7D0087241D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			children = (
 				50CD61CB21FADA7D0087241D /* AppDelegate.swift */,
 				50CD61CD21FADA7D0087241D /* ViewController.swift */,
+				502966C722026C5E00D372C2 /* HistoryViewController.swift */,
 				50CD61CF21FADA7D0087241D /* Main.storyboard */,
 				50CD61D221FADA7E0087241D /* Assets.xcassets */,
 				50CD61D421FADA7E0087241D /* LaunchScreen.storyboard */,
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				502966C822026C5E00D372C2 /* HistoryViewController.swift in Sources */,
 				50CD61CE21FADA7D0087241D /* ViewController.swift in Sources */,
 				50CD61CC21FADA7D0087241D /* AppDelegate.swift in Sources */,
 			);
