@@ -99,7 +99,13 @@ class ViewController: UIViewController {
 
         if Int(label.text!)! <= 0 {
             gameOver = true
-            infoForPlayer.text = "The game is over! Please click reset"
+            
+            let alert = UIAlertController(title: "GAME OVER", message: "The game is over, click to reset", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "reset", style: .default, handler: {
+                action in
+                self.reset(alert)
+            }))
+            present(alert, animated: true, completion: nil)
         }
         
         // generate history info test[test.startIndex]
@@ -139,6 +145,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func reset(_ sender: Any) {
+        count = 4
         wholeHistory = ""
         var allScore: [UILabel]!
         allScore = [p1, p2, p3, p4, p5, p6, p7, p8]
@@ -150,14 +157,15 @@ class ViewController: UIViewController {
         for element in playerViews[4...7] {
             element.isHidden = true
         }
-        count = 4
+        for element in playerViews[0...3] {
+            element.isHidden = false
+        }
+        
+        for inputs in scoreInputs{
+            inputs.text = "5"
+        }
+        
     }
-    
-    
-    
-    
-    
-    
     
     // cited from stockoverflow https://stackoverflow.com/questions/9250433/how-do-i-convert-an-integer-to-the-corresponding-words-in-objective-c
     func toWords<N>(number: N) -> String? {
